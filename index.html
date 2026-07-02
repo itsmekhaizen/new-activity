@@ -99,7 +99,7 @@
 
         footer {
             margin-top: auto;
-            background-color: #004b8d;
+            background-color: #1df341;
             color: #fff;
             text-align: center;
             font-size: 0.9rem;
@@ -142,20 +142,21 @@
 
         .form-row {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-        }
-
-        .checkbox-group,
-        .radio-group {
-            display: flex;
-            flex-wrap: wrap;
+            grid-template-columns: 1fr;
             gap: 15px;
         }
 
         .checkbox-group label,
         .radio-group label {
-            font-weight: normal;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .checkbox-group input,
+        .radio-group input {
+            width: auto;
+            margin: 0;
         }
 
         .success {
@@ -196,9 +197,8 @@
             const fullname = document.getElementById("fullname").value;
 
             document.getElementById("form-result").innerHTML =
-                "✔ Registration Successful! Welcome, <b>" + fullname + "</b>.";
-
-            document.getElementById("event-form").reset();
+                "✔ Registration Successful! Welcome, " + fullname + "</b>.";
+ument.getElementById("event-form").reset();
         }
     </script>
 </head>
@@ -212,18 +212,20 @@
         </header>
 
         <nav>
-            <a href="#layout">Layout</a>
-            <a href="#code">Code Samples</a>
-            <a href="#forms">Forms</a>
-            <a href="#symbols">Symbols & Emojis</a>
-            <a href="#xhtml">HTML vs XHTML</a>
+            <a href="#Overview">Overview</a>
+            <a href="#Schedule">Schedule</a>
+            <a href="#Location">Location</a>
+            <a href="#Registration">Registration</a>
+            <a href="#FAQ">FAQ</a>
+            <a href="#Tech Demo">Tech Demo</a>
+
         </nav>
 
         <div class="container">
 
             <section class="main-section">
 
-                <article id="layout" class="card">
+                <article id="Overview" class="card">
                     <h2>Event overview ★  </h2>
 
                     <div class="info-box">
@@ -233,12 +235,14 @@
 
                         <p>Join us for a week of learning, networking, and fun & excitement as we celebrate technology in 
                         education ✔</p>
+                        <img src="images/smcc.png" alt="" width="1500" height="700">
+
                     </div>
 
                     
                 </article>
 
-                <article class="card">
+                <article id="Schedule" class="card">
                     <h2> Event Schedule ✔</h2>
                     <p>Here is the simplified schedule of activities: </p>
                         
@@ -247,39 +251,33 @@
                     <li>Day 2 → Coding Hackathon</li>
                     <li>Day 3 → Robotics and IoT Exhibition</li>
                     <li>Day 4 → Cybersecurity Awareness Session</li>
-                    <li>Day 5- Project Showcase and Awarding Ceremony 🏆</li>
+                    <li>Day 5 → Project Showcase and Awarding Ceremony 🏆</li>
                     </ul>
 
                     
                 </article>
 
-                <article class="card">
+                <article id="Location" class="card">
                     <h2> Event Location & Map </h2>
                     <p>
-                        The image below is loaded from a <em>relative file path</em>:
-                        <code>images/profile.jpg</code>.
+                        All events will be held at the <b>SMCC Main Campus-IT Building</b>. Use the embedded map below to find the location easily.    
                     </p>
 
-                    <img
-                        src="images/mark.jpg"
-                        alt="Sample profile photo"
-                        style="max-width: 160px; border-radius: 10%; border: 3px solid #004b8d;">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.824706942319!2d125.33782747582688!3d8.988272389623482!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3301ca2f04581cbb%3A0xe4e2656c7835d5f2!2sSaint%20Michael%20College%20of%20Caraga!5e0!3m2!1sen!2sph!4v1782982497234!5m2!1sen!2sph" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
                 </article>
 
-                <article id="forms" class="card">
-                    <h2>4. HTML Forms</h2>
+                <article id="Registration" class="card">
+                    <h2>Even Registration Form 📋✔</h2>
 
                     <p>
-                        HTML forms allow users to submit information such as event registrations,
-                        login credentials, surveys, and feedback. HTML5 also provides built-in
-                        validation features that help ensure correct user input.
+                        Please complete the form below to register for SMCC-CCIS Week 2026.
                     </p>
 
                     <form id="event-form" onsubmit="registerStudent(event)">
 
                         <div class="form-row">
                             <div>
-                                <label for="fullname">Full Name</label>
+                                <label for="fullname:">Full Name:</label>
                                 <input
                                     type="text"
                                     id="fullname"
@@ -290,7 +288,7 @@
                             </div>
 
                             <div>
-                                <label for="email">Email Address</label>
+                                <label for="email:">Email Address:</label>
                                 <input
                                     type="email"
                                     id="email"
@@ -302,10 +300,10 @@
 
                         <div class="form-row">
                             <div>
-                                <label for="studentid">Student ID</label>
+                                <label for="Student ID Number:">Student ID Number:</label>
                                 <input
                                     type="text"
-                                    id="studentid"
+                                    id="Student ID Number:"
                                     name="studentid"
                                     placeholder="202600123"
                                     required
@@ -314,19 +312,21 @@
                             </div>
 
                             <div>
-                                <label for="course">Course</label>
-                                <select id="course" name="course" required>
-                                    <option value="">Select Course</option>
-                                    <option value="BS Information Systems">BS Information Systems</option>
-                                    <option value="BS Computer Science">BS Computer Science</option>
-                                    <option value="BS Information Technology">BS Information Technology</option>
-                                </select>
+                                <label for="Contact Number:">Contact Number:</label>
+                            <input
+                                type="tel"
+                                id="contactnumber"
+                                name="contactnumber"
+                                placeholder="Example: 09123456789"
+                                pattern="09[0-9]{9}"
+                                maxlength="11"
+                                required>
                             </div>
                         </div>
 
                         <div class="form-row">
                             <div>
-                                <label for="birthdate">Birthdate</label>
+                                <label for="birthdate:">Birthdate:</label>
                                 <input
                                     type="date"
                                     id="birthdate"
@@ -335,7 +335,7 @@
                             </div>
 
                             <div>
-                                <label for="arrival">Arrival Time</label>
+                                <label for="Preferred Arrival Time:">Arrival Time:</label>
                                 <input
                                     type="time"
                                     id="arrival"
@@ -385,14 +385,14 @@
                             </label>
                         </div>
 
-                        <label for="schoolid">Upload School ID</label>
+                        <label for="schoolid">Upload Proof of Registration or School ID:</label>
                         <input
                             type="file"
                             id="schoolid"
                             name="schoolid"
                             accept=".jpg,.jpeg,.png,.pdf">
 
-                        <label for="comments">Comments</label>
+                        <label for="comments">Reason for Joining:</label>
                         <textarea
                             id="comments"
                             name="comments"
@@ -415,53 +415,61 @@
                     </form>
                 </article>
 
-                <article id="code" class="card">
-                    <h2>5. Computer Code Tags</h2>
-                    <p>We can show code and computer-related text using special tags:</p>
+                <article id="FAQ" class="card">
+                    <h2>Frequently Asked Questions</h2>
+                    <p>Use the button below to interact with the page</p>
+                    <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                            <button type="button" class="primary-btn"
+                            onclick="togglemessage()">Toggle FAQ Visibility</button>
+                        </div>
+                    <p><b>1. is the event open to all students</b></p>
+                    <p>Yes, the event is open to all departments and year level.</p>
+                    <p><b>2. Do I need to register?</b></p>
+                    <p>Yes, registration is equired for competitors, workshops, and project showcases.</p>
+                    <p><b>3. Is there a registration fee?</b></p>
+                    <p>No, all SMCC-CCIS Week 2026 activities are free of change</p>
+                        
+                </article>
+
+                <article id="Tech Demo" class="card">
+                    <h2>Tech Demo & Developer Notes</h2>
+                    <p>Sample Command Using pre and code</p>
 
                     <div class="code-block">
 <pre><code>&lt;pre&gt; and &lt;code&gt; show preformatted code:
 
-function hello() {
-    console.log("Hello, world!");
-}
+// Clone the SMCC-CCIS Meek repository
+git clone https://github.com/example/ccisweek2026.git
+// Install dependencies
+npm install
+// Start development server
+npe run dev
+
 </code></pre>
                     </div>
 
                     <p>
-                        Press <kbd>Ctrl</kbd> + <kbd>S</kbd> to save your file.
-                        Program output example using <code>&lt;samp&gt;</code>:
+                        To save your changes, press <kbd>Ctrl</kbd> + <kbd>S</kbd> Example system output using <code>&lt;samp&gt;</code>:
                         <samp>Build successful. No errors found.</samp>
                     </p>
-                </article>
+                
 
-                <article id="symbols" class="card">
-                    <h2>6. Entities, Symbols, Emojis & URL Encoding</h2>
-
-                    <p>
-                        HTML <strong>entities</strong> and <strong>symbols</strong>:
-                        &copy; 2026 InfoHub &mdash; All rights reserved.
-                        Heart symbol: &hearts;
-                        Check symbol: &#10003; (✓)
-                    </p>
+            
+                    <h2>Registration URL Example</h2>
 
                     <p>
-                        Emojis add expression: &#128516;&#128640;&#127793;
-                    </p>
-
-                    <p>
-                        Example of a URL-encoded search query:
+                        Example registration URL with encoded spaces and Symbols
                     </p>
 
                     <div class="code-block">
-                        <code>https://example.com/search?query=HTML%20Advanced%20Topics%21</code>
+                        https://myschool.edu/events/register/event-SACCX20CCISX20WeekX202020&section-A
                     </div>
-                </article>
+                    <p>Here, %20 represents a space character in the URL.</p>
 
-                <article id="xhtml" class="card">
-                    <h2>7. HTML vs XHTML</h2>
+                
+                    <h2> HTML vs XHTML Example </h2>
 
-                    <p>Below is a simple comparison of HTML and XHTML syntax:</p>
+                    <p>Compare the following snippets:</p>
 
                     <div class="code-block">
 <pre><code>&lt;!-- HTML version not self-closed --&gt;
@@ -506,7 +514,7 @@ function hello() {
 
         <footer>
             <p>
-                Built with advanced HTML Concepts &middot; InfoHub Sample &nbsp;&starf; &nbsp; &copy; 2026
+                SMCC-CCIS Week 2026-Campus Event Showcase | Made with HTML, CSS & JavaScript &nbsp;&starf; &nbsp; &copy; 2026
             </p>
         </footer>
 
